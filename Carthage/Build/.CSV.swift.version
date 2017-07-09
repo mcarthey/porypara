@@ -1,0 +1,9 @@
+{
+  "commitish" : "2.0.0",
+  "iOS" : [
+    {
+      "hash" : "2dcc21d8d11dbe4713c084b48da614b80f85aba1e3f1c10e4ff5443b7b0dd545",
+      "name" : "CSV"
+    }
+  ]
+}
