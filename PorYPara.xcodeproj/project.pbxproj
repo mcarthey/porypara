@@ -14,6 +14,7 @@
 		8D0F7C031F1134C2003B1DFA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D0F7C011F1134C2003B1DFA /* LaunchScreen.storyboard */; };
 		8D0F7C0C1F113B30003B1DFA /* CSV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D0F7C0B1F113B30003B1DFA /* CSV.framework */; };
 		8D0F7C0F1F118C05003B1DFA /* porypara.csv in Resources */ = {isa = PBXBuildFile; fileRef = 8D0F7C0E1F118C05003B1DFA /* porypara.csv */; };
+		8D0F7C111F1314BD003B1DFA /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0F7C101F1314BD003B1DFA /* AboutViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		8D0F7C041F1134C2003B1DFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D0F7C0B1F113B30003B1DFA /* CSV.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CSV.framework; path = Carthage/Build/iOS/CSV.framework; sourceTree = "<group>"; };
 		8D0F7C0E1F118C05003B1DFA /* porypara.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = porypara.csv; sourceTree = "<group>"; };
+		8D0F7C101F1314BD003B1DFA /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				8D0F7C0E1F118C05003B1DFA /* porypara.csv */,
 				8D0F7BF81F1134C2003B1DFA /* AppDelegate.swift */,
 				8D0F7BFA1F1134C2003B1DFA /* ViewController.swift */,
+				8D0F7C101F1314BD003B1DFA /* AboutViewController.swift */,
 				8D0F7BFC1F1134C2003B1DFA /* Main.storyboard */,
 				8D0F7BFF1F1134C2003B1DFA /* Assets.xcassets */,
 				8D0F7C011F1134C2003B1DFA /* LaunchScreen.storyboard */,
@@ -171,6 +174,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D0F7C111F1314BD003B1DFA /* AboutViewController.swift in Sources */,
 				8D0F7BFB1F1134C2003B1DFA /* ViewController.swift in Sources */,
 				8D0F7BF91F1134C2003B1DFA /* AppDelegate.swift in Sources */,
 			);
