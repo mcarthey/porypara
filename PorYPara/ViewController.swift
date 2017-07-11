@@ -14,6 +14,7 @@ import GameplayKit
 class ViewController: UIViewController {
     @IBOutlet weak var porButton: UIButton!
     @IBOutlet weak var paraButton: UIButton!
+    @IBOutlet weak var starButton: UIButton!
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var translationLabel: UILabel!
     @IBOutlet weak var applicationLabel: UILabel!
@@ -44,7 +45,7 @@ class ViewController: UIViewController {
     
     func askQuestion(action: UIAlertAction! = nil) {
         
-        rand = Int(arc4random_uniform(UInt32(questions.count)) + 1)
+        rand = Int(arc4random_uniform(UInt32(questions.count)))
         let ques = questions[rand]!
         
         questionLabel.text = ques.attr["first"]! + " ______ " + ques.attr["last"]!
@@ -84,6 +85,16 @@ class ViewController: UIViewController {
         
         askQuestion()
     }
+    @IBAction func starTapped(_ sender: UIButton) {
+        let starFilled = #imageLiteral(resourceName: "Star-Filled-20x20")
+        let star = #imageLiteral(resourceName: "Star-20x20")
+        
+        if starButton.currentImage == starFilled {
+            starButton.setImage(star, for: .normal)
+        } else {
+            starButton.setImage(starFilled, for: .normal)
+        }
+    }
     
     func loadFile() {
         if let path = Bundle.main.path(forResource: "porypara", ofType: "csv") {
@@ -107,29 +118,29 @@ class ViewController: UIViewController {
         }
     }
     
-//    func sample() {
-//        struct Person {
-//            var attributes = [String : String]()
-//        }
-//        var peopleByID = [ Int : Person ]()
-//        
-//        // and then:
-//        
-//        var p1 = Person()
-//        var p2 = Person()
-//        p1.attributes["Surname"] = "Somename"
-//        p1.attributes["Name"] = "Firstname"
-//        p2.attributes["Address"] = "123 Main St."
-//        peopleByID[1] = p1
-//        peopleByID[2] = p2
-//        
-//        if let person1 = peopleByID[1] {
-//            print(person1.attributes["Surname"]!)
-//            
-//            for attrKey in person1.attributes.keys {
-//                print("Key: \(attrKey) value: \(person1.attributes[attrKey]!)")
-//            }
-//        }
-//    }
+    //    func sample() {
+    //        struct Person {
+    //            var attributes = [String : String]()
+    //        }
+    //        var peopleByID = [ Int : Person ]()
+    //
+    //        // and then:
+    //
+    //        var p1 = Person()
+    //        var p2 = Person()
+    //        p1.attributes["Surname"] = "Somename"
+    //        p1.attributes["Name"] = "Firstname"
+    //        p2.attributes["Address"] = "123 Main St."
+    //        peopleByID[1] = p1
+    //        peopleByID[2] = p2
+    //
+    //        if let person1 = peopleByID[1] {
+    //            print(person1.attributes["Surname"]!)
+    //
+    //            for attrKey in person1.attributes.keys {
+    //                print("Key: \(attrKey) value: \(person1.attributes[attrKey]!)")
+    //            }
+    //        }
+    //    }
 }
 
