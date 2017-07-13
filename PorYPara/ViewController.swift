@@ -24,7 +24,9 @@ class ViewController: UIViewController {
     }
     var questions = [Int: Question]()
     var headers = [String]()
-    var rand: Int = 0
+    var questionIndex: Int = 0
+    var bookmarks = [Int]()
+    var defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,8 +47,8 @@ class ViewController: UIViewController {
     
     func askQuestion(action: UIAlertAction! = nil) {
         
-        rand = Int(arc4random_uniform(UInt32(questions.count)))
-        let ques = questions[rand]!
+        questionIndex = Int(arc4random_uniform(UInt32(questions.count)))
+        let ques = questions[questionIndex]!
         
         questionLabel.text = ques.attr["first"]! + " ______ " + ques.attr["last"]!
         translationLabel.text = ques.attr["translation"]
@@ -60,7 +62,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func buttonTapped(_ sender: UIButton) {
-        let answer = questions[rand]!.attr["answer"]!.lowercased()
+        let answer = questions[questionIndex]!.attr["answer"]!.lowercased()
         
         if sender.titleLabel!.text == answer {
             title = "RIGHT"
@@ -83,6 +85,9 @@ class ViewController: UIViewController {
         porButton.isEnabled = true
         paraButton.isEnabled = true
         
+        let star = #imageLiteral(resourceName: "Star-20x20")
+        starButton.setImage(star, for: .normal)
+        
         askQuestion()
     }
     @IBAction func starTapped(_ sender: UIButton) {
@@ -91,8 +96,14 @@ class ViewController: UIViewController {
         
         if starButton.currentImage == starFilled {
             starButton.setImage(star, for: .normal)
+            let array = defaults.object(forKey: "bookmarks") as? [Int] ?? [Int]()
+            bookmarks = array.filter({ $0 != questionIndex })
+            print ("bookmarks: \(bookmarks)")
         } else {
             starButton.setImage(starFilled, for: .normal)
+            bookmarks.append(questionIndex)
+            defaults.set(bookmarks, forKey: "bookmarks")
+            print ("bookmarks: \(bookmarks)")
         }
     }
     
